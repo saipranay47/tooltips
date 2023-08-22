@@ -65,14 +65,28 @@ const Tooltip = ({
   horizontalposition,
   verticalposition,
 }) => {
+  const [showTooltip, setShowTooltip] = React.useState(false);
+
+  const tooltipStyle = {
+    visibility: showTooltip ? "visible" : "hidden",
+    opacity: showTooltip ? 1 : 0,
+    transition: "visibility 0.2s, opacity 0.2s",
+  };
+
   return (
     <TooltipWrapper
       horizontalposition={horizontalposition}
       verticalposition={verticalposition}
     >
-      {children}
+      <div
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
+        {children}
+      </div>
 
       <TooltipContent
+        style={tooltipStyle}
         bgcolor={bgcolor}
         textcolor={textcolor}
         padding={padding}
