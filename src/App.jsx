@@ -1,6 +1,7 @@
 import React from "react";
 import Tooltip from "./components/Tooltip";
 import styled from "styled-components";
+import { useTooltipContext } from "./context/TooltipContext";
 
 const Container = styled.div`
   display: flex;
@@ -24,20 +25,21 @@ const Button = styled.button`
 
 
 function App() {
+  const { formData } = useTooltipContext();
   return (
     <Container>
       <Tooltip
-        text={"This is a tooltip"}
-        bgcolor="black"
-        textcolor="white"
-        padding="10px"
-        cornerradius="4px"
-        tooltipwidth="250px"
-        arrowheight="10px"
+        text={formData.tooltipText}
+        bgcolor={formData.backgroundColor}
+        textcolor={formData.textColor}
+        padding={formData.padding + "px"}
+        cornerradius={formData.cornerRadius + "px"}
+        tooltipwidth={formData.tooltipWidth + "px"}
+        arrowheight={formData.arrowSize + "px"}
         horizontalposition={"center"}
         verticalposition={"bottom"}
       >
-        <Button data-tooltip="Hover me for a tooltip">Hover me</Button>
+        <Button >Hover me</Button>
       </Tooltip>
     </Container>
   );
