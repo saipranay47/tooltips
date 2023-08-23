@@ -1,8 +1,10 @@
 import React from "react";
 import { useTooltipContext } from "../../context/TooltipContext";
-import { FormContainer, Label, Select, Input, FlexBox } from "./FormElements";
-
-import { ColorInput } from "./ColorInput";
+import { FormContainer, FlexBox } from "./FormElements";
+import { ColorInput } from "./inputs/ColorInput";
+import SelectField from "./inputs/SelectField";
+import InputField from "./inputs/InputField";
+import ImageInput from "./inputs/ImageInput";
 
 const TooltipForm = () => {
   const { formData, updateFormData } = useTooltipContext();
@@ -11,132 +13,81 @@ const TooltipForm = () => {
     updateFormData({ [field]: value });
   };
 
-  const handleImageUpload = (event) => {
-    const imageFile = event.target.files[0];
-    handleInputChange("imageFile", imageFile);
-  };
-
   return (
     <FormContainer>
-      <Label>
-        Target Element:
-        <br />
-        <Select
-          value={formData.targetElement}
-          onChange={(e) => handleInputChange("targetElement", e.target.value)}
-        >
-          <option value="button1">Button 1</option>
-          <option value="button2">Button 2</option>
-          <option value="button3">Button 3</option>
-          <option value="button4">Button 4</option>
-          <option value="button5">Button 5</option>
-        </Select>
-      </Label>
-      <Label>
-        Tooltip Text:
-        <br />
-        <Input
-          type="text"
-          value={formData.tooltipText}
-          onChange={(e) => handleInputChange("tooltipText", e.target.value)}
-        />
-      </Label>
+      <SelectField
+        label="Target Element:"
+        value={formData.targetElement}
+        options={["Button 1", "Button 2", "Button 3", "Button 4", "Button 5"]}
+        onChange={(value) => handleInputChange("targetElement", value)}
+      />
+      <InputField
+        label="Tooltip Text:"
+        type="text"
+        value={formData.tooltipText}
+        onChange={(value) => handleInputChange("tooltipText", value)}
+      />
       <FlexBox>
-        <Label>
-          Image Upload:
-          <br />
-          <Input type="file" accept="image/*" onChange={handleImageUpload} />
-        </Label>
-        <Label>
-          Target Element:
-          <br />
-          <Select
-            value={formData.imageposition}
-            onChange={(e) => handleInputChange("imageposition", e.target.value)}
-          >
-            <option value="left">Left</option>
-            <option value="right">Right</option>
-            <option value="top">Top</option>
-            <option value="bottom">Bottom</option>
-          </Select>
-        </Label>
+        <ImageInput
+          label="Image Upload:"
+          onChange={(file) => handleInputChange("imageFile", file)}
+        />
+        <SelectField
+          label="Image Position:"
+          value={formData.imageposition}
+          options={["Left", "Right", "Top", "Bottom"]}
+          onChange={(value) => handleInputChange("imageposition", value)}
+        />
       </FlexBox>
       <FlexBox>
-        <Label>
-          Text Size:
-          <br />
-          <Input
-            type="number"
-            value={formData.textSize}
-            onChange={(e) =>
-              handleInputChange("textSize", parseInt(e.target.value))
-            }
-          />
-        </Label>
-        <Label>
-          Padding:
-          <br />
-          <Input
-            type="number"
-            value={formData.padding}
-            onChange={(e) =>
-              handleInputChange("padding", parseInt(e.target.value))
-            }
-          />
-        </Label>
-      </FlexBox>
-      <Label>
-        Text Color:
-        <br />
-        <ColorInput
-          value={formData.textColor}
-          onChange={(value) => handleInputChange("textColor", value)}
-        />
-      </Label>
-      <Label>
-        Background Color:
-        <br />
-        <ColorInput
-          value={formData.backgroundColor}
-          onChange={(value) => handleInputChange("backgroundColor", value)}
-        />
-      </Label>
-      <FlexBox>
-        <Label>
-          Corner Radius:
-          <br />
-          <Input
-            type="number"
-            value={formData.cornerRadius}
-            onChange={(e) =>
-              handleInputChange("cornerRadius", parseInt(e.target.value))
-            }
-          />
-        </Label>
-        <Label>
-          Tooltip Width:
-          <br />
-          <Input
-            type="number"
-            value={formData.tooltipWidth}
-            onChange={(e) =>
-              handleInputChange("tooltipWidth", parseInt(e.target.value))
-            }
-            placeholder="Auto"
-          />
-        </Label>
-      </FlexBox>
-      <Label>
-        Arrow Size:
-        <br />
-        <Input
+        <InputField
+          label="Text Size:"
           type="number"
-          value={formData.arrowSize}
-          onChange={(e) =>
-            handleInputChange("arrowSize", parseInt(e.target.value))
+          value={formData.textSize}
+          onChange={(value) => handleInputChange("textSize", parseInt(value))}
+        />
+        <InputField
+          label="Padding:"
+          type="number"
+          value={formData.padding}
+          onChange={(value) => handleInputChange("padding", parseInt(value))}
+        />
+      </FlexBox>
+      <ColorInput
+        label="Text Color:"
+        value={formData.textColor}
+        onChange={(value) => handleInputChange("textColor", value)}
+      />
+      <ColorInput
+        label="Background Color:"
+        value={formData.backgroundColor}
+        onChange={(value) => handleInputChange("backgroundColor", value)}
+      />
+      <FlexBox>
+        <InputField
+          label="Corner Radius:"
+          type="number"
+          value={formData.cornerRadius}
+          onChange={(value) =>
+            handleInputChange("cornerRadius", parseInt(value))
           }
         />
-      </Label>
+        <InputField
+          label="Tooltip Width:"
+          type="number"
+          value={formData.tooltipWidth}
+          onChange={(value) =>
+            handleInputChange("tooltipWidth", parseInt(value))
+          }
+          placeholder="Auto"
+        />
+      </FlexBox>
+      <InputField
+        label="Arrow Size:"
+        type="number"
+        value={formData.arrowSize}
+        onChange={(value) => handleInputChange("arrowSize", parseInt(value))}
+      />
     </FormContainer>
   );
 };

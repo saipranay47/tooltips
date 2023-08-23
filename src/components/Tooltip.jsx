@@ -23,13 +23,13 @@ const TooltipContent = styled.div`
 
   flex-direction: ${(props) => {
     switch (props.imageposition) {
-      case "left":
+      case "Left":
         return "row";
-      case "right":
+      case "Right":
         return "row-reverse";
-      case "top":
+      case "Top":
         return "column";
-      case "bottom":
+      case "Bottom":
         return "column-reverse";
       default:
         return "row"; // Default value

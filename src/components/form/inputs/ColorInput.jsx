@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import { Label } from "../FormElements";
 
 const ColorInputContainer = styled.div`
   display: flex;
@@ -31,6 +32,14 @@ const HexInput = styled.input`
   }
 `;
 
+const ColorPickerInput = styled.input`
+  position: absolute;
+  left: 55%;
+  width: 85px;
+  height: 40px;
+  opacity: 0;
+`;
+
 export const ColorPreview = styled.div`
   width: 100px;
   height: 40px;
@@ -42,7 +51,7 @@ export const ColorPreview = styled.div`
   z-index: 1;
 `;
 
-export const ColorInput = ({ value, onChange }) => {
+export const ColorInput = ({ label, value, onChange }) => {
   const colorPickerRef = useRef(null);
 
   const handleHexInputChange = (e) => {
@@ -53,7 +62,7 @@ export const ColorInput = ({ value, onChange }) => {
   };
 
   const handleColorPreviewClick = () => {
-    colorPickerRef.current.click(); 
+    colorPickerRef.current.click();
   };
 
   const handleColorPickerChange = (e) => {
@@ -61,28 +70,23 @@ export const ColorInput = ({ value, onChange }) => {
   };
 
   return (
-    <ColorInputContainer>
-      <HexInput
-        type="text"
-        maxLength="7"
-        value={value}
-        onChange={handleHexInputChange}
-      />
-      <ColorPreview color={value} onClick={handleColorPreviewClick} />
-
-      <input
-        ref={colorPickerRef}
-        type="color"
-        value={value}
-        onChange={handleColorPickerChange}
-        style={{
-          position: "absolute",
-          left: "55%",
-          width: "85px",
-          height: "40px",
-          opacity: "0",
-        }}
-      />
-    </ColorInputContainer>
+    <>
+      <Label>{label}</Label>
+      <ColorInputContainer>
+        <HexInput
+          type="text"
+          maxLength="7"
+          value={value}
+          onChange={handleHexInputChange}
+        />
+        <ColorPreview color={value} onClick={handleColorPreviewClick} />
+        <ColorPickerInput
+          ref={colorPickerRef}
+          type="color"
+          value={value}
+          onChange={handleColorPickerChange}
+        />
+      </ColorInputContainer>
+    </>
   );
 };

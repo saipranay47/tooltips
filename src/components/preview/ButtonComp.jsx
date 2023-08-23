@@ -3,7 +3,7 @@ import Tooltip from "../Tooltip";
 import { useTooltipContext } from "../../context/TooltipContext";
 import { Button } from "./MobilePreviewElements";
 
-function ButtonComp({ number }) {
+function ButtonComp({ number, horizontalposition, verticalposition }) {
   const { formData } = useTooltipContext();
 
   return (
@@ -16,9 +16,9 @@ function ButtonComp({ number }) {
       cornerradius={formData.cornerRadius + "px"}
       tooltipwidth={formData.tooltipWidth}
       arrowheight={formData.arrowSize + "px"}
-      horizontalposition={"start"}
-      verticalposition={"bottom"}
-      alwaysvisible={formData.targetElement === "button" + number}
+      horizontalposition={horizontalposition}
+      verticalposition={verticalposition}
+      alwaysvisible={formData.targetElement === "Button " + number}
       imageFile={formData.imageFile}
       imageposition={formData.imageposition}
     >

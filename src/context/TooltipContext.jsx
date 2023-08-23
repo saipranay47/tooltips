@@ -4,7 +4,7 @@ const TooltipContext = createContext();
 
 export function TooltipProvider({ children }) {
   const [formData, setFormData] = useState({
-    targetElement: "button3",
+    targetElement: "Button 3",
     tooltipText: "Tooltip text goes here",
     textSize: 14,
     padding: 10,
@@ -14,7 +14,7 @@ export function TooltipProvider({ children }) {
     tooltipWidth: "",
     arrowSize: 10,
     imageFile: null,
-    imageposition: "left",
+    imageposition: "Left",
   });
 
   const updateFormData = (newData) => {
