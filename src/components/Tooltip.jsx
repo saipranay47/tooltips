@@ -122,7 +122,7 @@ const Tooltip = ({
   imageFile,
   imageposition,
 }) => {
-  const [showTooltip, setShowTooltip] = React.useState(alwaysvisible);
+  const [showTooltip, setShowTooltip] = useState(alwaysvisible);
 
   useEffect(() => {
     setShowTooltip(alwaysvisible);
@@ -176,6 +176,8 @@ Tooltip.propTypes = {
   horizontalposition: PropTypes.oneOf(["start", "center", "end"]),
   verticalposition: PropTypes.oneOf(["top", "bottom"]),
   alwaysvisible: PropTypes.bool,
+  imageFile: PropTypes.object,
+  imageposition: PropTypes.oneOf(["Left", "Right", "Top", "Bottom"]),
 };
 
 export default Tooltip;
