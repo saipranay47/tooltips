@@ -46,7 +46,7 @@ const TooltipContent = styled.div`
 
   width: ${(props) =>
     props.tooltipwidth ? props.tooltipwidth + "px" : "max-content"};
-  max-width: 300px;
+  max-width: 380px;
 
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   opacity: ${(props) => (props.show ? 1 : 0)};
