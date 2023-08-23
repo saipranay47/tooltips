@@ -10,6 +10,12 @@ const Container = styled.div`
   height: 100%;
   width: 100vw;
   max-width: 1400px;
+
+  /* media query at 1000px */
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 function App() {

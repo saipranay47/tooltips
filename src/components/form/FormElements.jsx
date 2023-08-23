@@ -12,6 +12,12 @@ export const FormContainer = styled.div`
   height: 100%;
   background-color: #f3f3f3;
   border-radius: 24px;
+
+  @media (max-width: 1000px) {
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin: 10px;
+  }
 `;
 
 export const Select = styled.select`
