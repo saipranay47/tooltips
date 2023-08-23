@@ -1,34 +1,7 @@
 ## Tooltip Component
-=================
 
 This project is a React component that provides a customizable tooltip for displaying additional information on hover.
 
-## Usage
------
-
-To use the Tooltip component, you can import it into your React component and pass in the necessary props:
-    
-    ```javascript
-function MyComponent() {
-  return (
-    <div>
-      <Tooltip
-        text="This is the tooltip text"
-        image="https://example.com/image.png"
-        imagePosition="Left"
-        textSize="16px"
-        bgColor="white"
-        textColor="black"
-        padding="12px"
-        cornerRadius="8px"
-        tooltipWidth={200}
-      >
-        <button>Hover me</button>
-      </Tooltip>
-    </div>
-  );
-}
-    ```
 
 Props
 -----
