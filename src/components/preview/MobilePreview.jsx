@@ -1,102 +1,19 @@
 import React from "react";
-import Tooltip from "../Tooltip";
-import { useTooltipContext } from "../../context/TooltipContext";
-import { MobileContainer, Button, Row } from "./MobilePreviewElements";
-
+import { MobileContainer, Row } from "./MobilePreviewElements";
+import ButtonComp from "./ButtonComp";
 function MobilePreview() {
-  const { formData } = useTooltipContext();
   return (
     <MobileContainer>
       <Row>
-        <Tooltip
-          text={formData.tooltipText}
-          textsize={formData.textSize + "px"}
-          bgcolor={formData.backgroundColor}
-          textcolor={formData.textColor}
-          padding={formData.padding + "px"}
-          cornerradius={formData.cornerRadius + "px"}
-          tooltipwidth={formData.tooltipWidth}
-          arrowheight={formData.arrowSize + "px"}
-          horizontalposition={"start"}
-          verticalposition={"bottom"}
-          alwaysvisible={formData.targetElement === "button1"}
-          imageFile = {formData.imageFile}
-          imageposition = {formData.imageposition}
-        >
-          <Button>Button 1</Button>
-        </Tooltip>
-        <Tooltip
-          text={formData.tooltipText}
-          textsize={formData.textSize + "px"}
-          bgcolor={formData.backgroundColor}
-          textcolor={formData.textColor}
-          padding={formData.padding + "px"}
-          cornerradius={formData.cornerRadius + "px"}
-          tooltipwidth={formData.tooltipWidth}
-          arrowheight={formData.arrowSize + "px"}
-          horizontalposition={"end"}
-          verticalposition={"bottom"}
-          alwaysvisible={formData.targetElement === "button2"}
-          imageFile = {formData.imageFile}
-          imageposition = {formData.imageposition}
-        >
-          <Button>Button 2</Button>
-        </Tooltip>
+        <ButtonComp number={1} />
+        <ButtonComp number={2} />
       </Row>
       <Row style={{ justifyContent: "center" }}>
-        <Tooltip
-          text={formData.tooltipText}
-          textsize={formData.textSize + "px"}
-          bgcolor={formData.backgroundColor}
-          textcolor={formData.textColor}
-          padding={formData.padding + "px"}
-          cornerradius={formData.cornerRadius + "px"}
-          tooltipwidth={formData.tooltipWidth}
-          arrowheight={formData.arrowSize + "px"}
-          horizontalposition={"center"}
-          verticalposition={"bottom"}
-          alwaysvisible={formData.targetElement === "button3"}
-          imageFile = {formData.imageFile}
-          imageposition = {formData.imageposition}
-        >
-          <Button>Button 3</Button>
-        </Tooltip>
+        <ButtonComp number={3} />
       </Row>
       <Row>
-        <Tooltip
-          text={formData.tooltipText}
-          textsize={formData.textSize + "px"}
-          bgcolor={formData.backgroundColor}
-          textcolor={formData.textColor}
-          padding={formData.padding + "px"}
-          cornerradius={formData.cornerRadius + "px"}
-          tooltipwidth={formData.tooltipWidth}
-          arrowheight={formData.arrowSize + "px"}
-          horizontalposition={"start"}
-          verticalposition={"top"}
-          alwaysvisible={formData.targetElement === "button4"}
-          imageFile = {formData.imageFile}
-          imageposition = {formData.imageposition}
-        >
-          <Button>Button 4</Button>
-        </Tooltip>
-        <Tooltip
-          text={formData.tooltipText}
-          textsize={formData.textSize + "px"}
-          bgcolor={formData.backgroundColor}
-          textcolor={formData.textColor}
-          padding={formData.padding + "px"}
-          cornerradius={formData.cornerRadius + "px"}
-          tooltipwidth={formData.tooltipWidth}
-          arrowheight={formData.arrowSize + "px"}
-          horizontalposition={"end"}
-          verticalposition={"top"}
-          alwaysvisible={formData.targetElement === "button5"}
-          imageFile = {formData.imageFile}
-          imageposition = {formData.imageposition}
-        >
-          <Button>Button 5</Button>
-        </Tooltip>
+        <ButtonComp number={4} />
+        <ButtonComp number={5} />
       </Row>
     </MobileContainer>
   );
