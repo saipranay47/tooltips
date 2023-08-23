@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const MobileContainer = styled.div`
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   border: 10px solid black;
   border-radius: 20px;
   height: 100%;
-  min-height: 700px;
+  min-height: 800px;
 
   padding: 16px;
   margin: 16px;

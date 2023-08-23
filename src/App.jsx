@@ -9,7 +9,7 @@ const Container = styled.div`
   align-items: center;
   height: 100%;
   width: 100vw;
-  max-width: 1300px;
+  max-width: 1400px;
 `;
 
 function App() {
