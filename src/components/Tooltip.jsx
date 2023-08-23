@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -32,7 +32,7 @@ const TooltipContent = styled.div`
       case "Bottom":
         return "column-reverse";
       default:
-        return "row"; // Default value
+        return "row"; 
     }
   }};
 
