@@ -10,6 +10,7 @@ function MobilePreview() {
       <Row>
         <Tooltip
           text={formData.tooltipText}
+          textsize={formData.textSize + "px"}
           bgcolor={formData.backgroundColor}
           textcolor={formData.textColor}
           padding={formData.padding + "px"}
@@ -18,11 +19,13 @@ function MobilePreview() {
           arrowheight={formData.arrowSize + "px"}
           horizontalposition={"start"}
           verticalposition={"bottom"}
+          alwaysvisible={formData.targetElement === "button1"}
         >
-          <Button>Hover me</Button>
+          <Button>Button 1</Button>
         </Tooltip>
         <Tooltip
           text={formData.tooltipText}
+          textsize={formData.textSize + "px"}
           bgcolor={formData.backgroundColor}
           textcolor={formData.textColor}
           padding={formData.padding + "px"}
@@ -31,13 +34,15 @@ function MobilePreview() {
           arrowheight={formData.arrowSize + "px"}
           horizontalposition={"end"}
           verticalposition={"bottom"}
+          alwaysvisible={formData.targetElement === "button2"}
         >
-          <Button>Hover me</Button>
+          <Button>Button 2</Button>
         </Tooltip>
       </Row>
       <Row style={{ justifyContent: "center" }}>
         <Tooltip
           text={formData.tooltipText}
+          textsize={formData.textSize + "px"}
           bgcolor={formData.backgroundColor}
           textcolor={formData.textColor}
           padding={formData.padding + "px"}
@@ -46,13 +51,15 @@ function MobilePreview() {
           arrowheight={formData.arrowSize + "px"}
           horizontalposition={"center"}
           verticalposition={"bottom"}
+          alwaysvisible={formData.targetElement === "button3"}
         >
-          <Button>Hover me</Button>
+          <Button>Button 3</Button>
         </Tooltip>
       </Row>
       <Row>
         <Tooltip
           text={formData.tooltipText}
+          textsize={formData.textSize + "px"}
           bgcolor={formData.backgroundColor}
           textcolor={formData.textColor}
           padding={formData.padding + "px"}
@@ -61,11 +68,13 @@ function MobilePreview() {
           arrowheight={formData.arrowSize + "px"}
           horizontalposition={"start"}
           verticalposition={"top"}
+          alwaysvisible={formData.targetElement === "button4"}
         >
-          <Button>Hover me</Button>
+          <Button>Button 4</Button>
         </Tooltip>
         <Tooltip
           text={formData.tooltipText}
+          textsize={formData.textSize + "px"}
           bgcolor={formData.backgroundColor}
           textcolor={formData.textColor}
           padding={formData.padding + "px"}
@@ -74,8 +83,9 @@ function MobilePreview() {
           arrowheight={formData.arrowSize + "px"}
           horizontalposition={"end"}
           verticalposition={"top"}
+          alwaysvisible={formData.targetElement === "button5"}
         >
-          <Button>Hover me</Button>
+          <Button>Button 5</Button>
         </Tooltip>
       </Row>
     </MobileContainer>
