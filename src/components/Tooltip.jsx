@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -19,6 +19,8 @@ const TooltipContent = styled.div`
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: visibility 0.2s, opacity 0.2s;
+
+  font-size: ${(props) => props.textsize || "14px"};
     
   background-color: ${(props) => props.bgcolor || "lightgray"};
   color: ${(props) => props.textcolor || "black"};
@@ -76,6 +78,7 @@ const TooltipContent = styled.div`
 
 const Tooltip = ({
   text,
+  textsize,
   children,
   bgcolor,
   textcolor,
@@ -85,8 +88,13 @@ const Tooltip = ({
   arrowheight,
   horizontalposition,
   verticalposition,
+  alwaysvisible,
 }) => {
-  const [showTooltip, setShowTooltip] = React.useState(false);
+  const [showTooltip, setShowTooltip] = React.useState(alwaysvisible);
+
+  useEffect(() => {
+    setShowTooltip(alwaysvisible);
+  }, [alwaysvisible]);
 
   return (
     <TooltipWrapper
@@ -95,12 +103,13 @@ const Tooltip = ({
     >
       <div
         onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+        onMouseLeave={() => setShowTooltip(alwaysvisible)}
       >
         {children}
       </div>
 
       <TooltipContent
+        textsize={textsize}
         show={showTooltip}
         bgcolor={bgcolor}
         textcolor={textcolor}
@@ -110,6 +119,7 @@ const Tooltip = ({
         arrowheight={arrowheight}
         horizontalposition={horizontalposition}
         verticalposition={verticalposition}
+        alwaysvisible={alwaysvisible}
       >
         {text}
       </TooltipContent>
@@ -119,6 +129,7 @@ const Tooltip = ({
 
 Tooltip.propTypes = {
   text: PropTypes.string.isRequired,
+  textsize: PropTypes.string,
   children: PropTypes.node.isRequired,
   bgcolor: PropTypes.string,
   textcolor: PropTypes.string,
@@ -128,6 +139,7 @@ Tooltip.propTypes = {
   arrowheight: PropTypes.string,
   horizontalposition: PropTypes.oneOf(["start", "center", "end"]),
   verticalposition: PropTypes.oneOf(["top", "bottom"]),
+  alwaysvisible: PropTypes.bool,
 };
 
 export default Tooltip;
