@@ -4,12 +4,12 @@ const TooltipContext = createContext();
 
 export function TooltipProvider({ children }) {
   const [formData, setFormData] = useState({
-    targetElement: "",
+    targetElement: "button3",
     tooltipText: "Tooltip text goes here",
     textSize: 14,
     padding: 10,
-    textColor: "#fff",
-    backgroundColor: "#000",
+    textColor: "#ffffff",
+    backgroundColor: "#000000",
     cornerRadius: 5,
     tooltipWidth: "",
     arrowSize: 10,
