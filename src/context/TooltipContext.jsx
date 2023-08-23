@@ -13,6 +13,8 @@ export function TooltipProvider({ children }) {
     cornerRadius: 5,
     tooltipWidth: "",
     arrowSize: 10,
+    imageFile: null,
+    imageposition: "left",
   });
 
   const updateFormData = (newData) => {

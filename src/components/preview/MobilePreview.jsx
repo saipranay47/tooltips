@@ -20,6 +20,8 @@ function MobilePreview() {
           horizontalposition={"start"}
           verticalposition={"bottom"}
           alwaysvisible={formData.targetElement === "button1"}
+          imageFile = {formData.imageFile}
+          imageposition = {formData.imageposition}
         >
           <Button>Button 1</Button>
         </Tooltip>
@@ -35,6 +37,8 @@ function MobilePreview() {
           horizontalposition={"end"}
           verticalposition={"bottom"}
           alwaysvisible={formData.targetElement === "button2"}
+          imageFile = {formData.imageFile}
+          imageposition = {formData.imageposition}
         >
           <Button>Button 2</Button>
         </Tooltip>
@@ -52,6 +56,8 @@ function MobilePreview() {
           horizontalposition={"center"}
           verticalposition={"bottom"}
           alwaysvisible={formData.targetElement === "button3"}
+          imageFile = {formData.imageFile}
+          imageposition = {formData.imageposition}
         >
           <Button>Button 3</Button>
         </Tooltip>
@@ -69,6 +75,8 @@ function MobilePreview() {
           horizontalposition={"start"}
           verticalposition={"top"}
           alwaysvisible={formData.targetElement === "button4"}
+          imageFile = {formData.imageFile}
+          imageposition = {formData.imageposition}
         >
           <Button>Button 4</Button>
         </Tooltip>
@@ -84,6 +92,8 @@ function MobilePreview() {
           horizontalposition={"end"}
           verticalposition={"top"}
           alwaysvisible={formData.targetElement === "button5"}
+          imageFile = {formData.imageFile}
+          imageposition = {formData.imageposition}
         >
           <Button>Button 5</Button>
         </Tooltip>

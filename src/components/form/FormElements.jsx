@@ -18,9 +18,11 @@ export const Select = styled.select`
   padding: 5px;
   margin: 6px 0px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 8px;
   width: 100%;
   font-size: 18px;
+  min-width: 350px;
+  padding: 12px 10px;
 `;
 
 export const Input = styled.input`

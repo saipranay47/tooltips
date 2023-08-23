@@ -14,14 +14,30 @@ const TooltipWrapper = styled.div`
 `;
 
 const TooltipContent = styled.div`
+  display: flex;
   z-index: 1;
   position: absolute;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: visibility 0.2s, opacity 0.2s;
 
+  flex-direction: ${(props) => {
+    switch (props.imageposition) {
+      case "left":
+        return "row";
+      case "right":
+        return "row-reverse";
+      case "top":
+        return "column";
+      case "bottom":
+        return "column-reverse";
+      default:
+        return "row"; // Default value
+    }
+  }};
+
   font-size: ${(props) => props.textsize || "14px"};
-    
+
   background-color: ${(props) => props.bgcolor || "lightgray"};
   color: ${(props) => props.textcolor || "black"};
 
@@ -30,10 +46,11 @@ const TooltipContent = styled.div`
 
   width: ${(props) =>
     props.tooltipwidth ? props.tooltipwidth + "px" : "max-content"};
-    
+  max-width: 300px;
+
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   opacity: ${(props) => (props.show ? 1 : 0)};
-  
+
   top: ${(props) =>
     props.verticalposition === "top"
       ? "auto"
@@ -62,7 +79,7 @@ const TooltipContent = styled.div`
         ? "auto"
         : "50%"};
     right: ${(props) => (props.horizontalposition === "end" ? "10px" : "auto")};
-    
+
     bottom: 100%;
     top: ${(props) => (props.verticalposition === "top" ? "100%" : "unset")};
 
@@ -74,6 +91,19 @@ const TooltipContent = styled.div`
         ? "rotate(180deg)"
         : "none"};
   }
+`;
+
+const Img = styled.img`
+  max-width: 300px;
+  max-height: 100px;
+  margin-right: 5px;
+`;
+
+const P = styled.p`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Tooltip = ({
@@ -89,6 +119,8 @@ const Tooltip = ({
   horizontalposition,
   verticalposition,
   alwaysvisible,
+  imageFile,
+  imageposition,
 }) => {
   const [showTooltip, setShowTooltip] = React.useState(alwaysvisible);
 
@@ -120,8 +152,12 @@ const Tooltip = ({
         horizontalposition={horizontalposition}
         verticalposition={verticalposition}
         alwaysvisible={alwaysvisible}
+        imageposition={imageposition}
       >
-        {text}
+        {imageFile && (
+          <Img src={URL.createObjectURL(imageFile)} alt="Tooltip Image" />
+        )}
+        <P>{text}</P>
       </TooltipContent>
     </TooltipWrapper>
   );

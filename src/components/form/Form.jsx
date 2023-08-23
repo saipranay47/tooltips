@@ -1,12 +1,6 @@
 import React from "react";
 import { useTooltipContext } from "../../context/TooltipContext";
-import {
-  FormContainer,
-  Label,
-  Select,
-  Input,
-  FlexBox,
-} from "./FormElements";
+import { FormContainer, Label, Select, Input, FlexBox } from "./FormElements";
 
 import { ColorInput } from "./ColorInput";
 
@@ -15,6 +9,11 @@ const TooltipForm = () => {
 
   const handleInputChange = (field, value) => {
     updateFormData({ [field]: value });
+  };
+
+  const handleImageUpload = (event) => {
+    const imageFile = event.target.files[0];
+    handleInputChange("imageFile", imageFile);
   };
 
   return (
@@ -42,6 +41,26 @@ const TooltipForm = () => {
           onChange={(e) => handleInputChange("tooltipText", e.target.value)}
         />
       </Label>
+      <FlexBox>
+        <Label>
+          Image Upload:
+          <br />
+          <Input type="file" accept="image/*" onChange={handleImageUpload} />
+        </Label>
+        <Label>
+          Target Element:
+          <br />
+          <Select
+            value={formData.imageposition}
+            onChange={(e) => handleInputChange("imageposition", e.target.value)}
+          >
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+          </Select>
+        </Label>
+      </FlexBox>
       <FlexBox>
         <Label>
           Text Size:
